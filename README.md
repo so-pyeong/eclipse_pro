@@ -6,5 +6,5 @@
 ![pro23 3마이바티스 실습 ](https://github.com/user-attachments/assets/b4f589f2-52cb-46d7-abcc-691d0d7a0aa3)
 
 
-###홈페이지 실습
+### 홈페이지 실습
 ![pro27 10](https://github.com/user-attachments/assets/a054299b-9d21-4895-8cd1-355415c1af73)
