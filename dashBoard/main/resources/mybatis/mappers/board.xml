@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+    <resultMap id="boardResult" type="BoardVO">
+        <result property="articleNO" column="articleNO" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="writeDate" column="writeDate" />
+    </resultMap>
+
+    <select id="selectAllArticlesList" resultMap="boardResult">
+        <![CDATA[
+        select * from tbl_board order by writeDate desc
+        ]]>
+    </select>
+
+    <insert id="insertArticle" parameterType="boardVO">
+        <![CDATA[
+        insert into tbl_board(articleNO, title, content, writeDate)
+        values (#{articleNO}, #{title}, #{content}, sysdate)
+        ]]>
+    </insert>
+
+    <delete id="deleteArticle" parameterType="String">
+        <![CDATA[
+        delete from tbl_board where articleNO=#{articleNO}
+        ]]>
+    </delete>
+
+    <select id="articleView" resultType="boardVO" parameterType="String">
+        <![CDATA[
+        select * from tbl_board where articleNO=#{articleNO}
+        ]]>
+    </select>
+
+    <select id="getMaxArticleNO" resultType="int">
+        <![CDATA[
+        select max(articleNO) from tbl_board
+        ]]>
+    </select>
+
+    <update id="updateArticle" parameterType="boardVO">
+        <![CDATA[
+        update tbl_board
+        set title=#{title}, content=#{content}
+        where articleNO=#{articleNO}
+        ]]>
+    </update>
+
+</mapper>
